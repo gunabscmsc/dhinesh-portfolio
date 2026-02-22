@@ -288,7 +288,7 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,0.55); }
 /* dropdown align fix: make .nav the anchor */
 @media (max-width: 920px){
   .nav{
-    position: relative; /* ✅ important: dropdown aligns to nav */
+    position: relative; /* important: dropdown aligns to nav */
   }
 
   /* make toggle perfectly centered and tap-friendly */
@@ -309,10 +309,10 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,0.55); }
   /* dropdown menu stays inside screen (no cut) */
   .nav__list{
     top: 56px; /* little closer than 64px (adjust if needed) */
-    right: 0;  /* ✅ stick to right edge of nav */
+    right: 0;  /* stick to right edge of nav */
     left: auto;
 
-    width: min(260px, calc(100vw - 24px)); /* ✅ never overflow */
+    width: min(260px, calc(100vw - 24px)); /*  never overflow */
     min-width: 0;                          /* override old min-width:220px */
     max-height: 70vh;
     overflow: auto;
@@ -326,5 +326,30 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,0.55); }
     display: block;
     width: 100%;
     padding: 12px 12px;
+  }
+}
+
+/* ===== iPHONE SAFER MOBILE MENU OVERRIDE (keep old code) ===== */
+@media (max-width: 920px){
+  .nav__list{
+    position: fixed !important;     /* screen relative (no cut) */
+    top: 72px !important;           /* below sticky header */
+    left: 12px !important;          /* inside screen */
+    right: 12px !important;         /* inside screen */
+    width: auto !important;         /* full width within margins */
+    min-width: 0 !important;        /* override min-width */
+    max-height: 70vh !important;
+    overflow: auto !important;
+
+    border-radius: 18px !important;
+    padding: 14px !important;
+    z-index: 9999 !important;
+    box-shadow: var(--shadow);
+  }
+
+  .nav__list a{
+    width: 100% !important;
+    padding: 12px 12px !important;
+    border-radius: 14px;
   }
 }
